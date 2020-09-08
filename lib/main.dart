@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 
 void main() {
   runApp(App());
@@ -30,26 +31,56 @@ class _MyHomeState extends State<MyHome> {
         json.decode(await rootBundle.loadString('assets/json/items.json'));
     var _items = List<Item>();
     for (var i in data) {
-      _items.add(Item(i['title'], i['content']));
+      _items.add(Item(i['title'], i['subtitle'], i['content']));
     }
     return _items;
   }
 
   @override
-  void initState(){
-    _getItems().then((value){
+  void initState() {
+    _getItems().then((value) {
       setState(() {
         items.addAll(value);
       });
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tutorial PHP'),
+        appBar: AppBar(
+          title: Row(
+            children: [
+              Icon(Icons.whatshot),
+              Text(' Tutorial PHP')
+            ],
+          ),
+        ),
+        body: ListView.builder(
+            itemBuilder: (BuildContext context, int index) {
+              return _listItem(index);
+            },
+            itemCount: items.length));
+  }
+
+  _listItem(index) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListTile(
+          leading: CircleAvatar(
+            radius: 30.0,
+            backgroundImage: AssetImage("assets/img/logo.png"),
+          ),
+          title: Text(items[index].title),
+          subtitle: Text(items[index].subtitle),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DetailPage(item: items[index])));
+          },
+        ),
       ),
     );
   }
@@ -57,7 +88,39 @@ class _MyHomeState extends State<MyHome> {
 
 class Item {
   final String title;
+  final String subtitle;
   final String content;
 
-  Item(this.title, this.content);
+  Item(this.title, this.subtitle, this.content);
 }
+
+class DetailPage extends StatelessWidget {
+  final Item item;
+
+  const DetailPage({Key key, this.item}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(item.title),
+        ),
+        body: ListView(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: HtmlWidget(
+                item.content,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(25),
+            )
+          ],
+        ));
+  }
+}
+
+const HqmOrPasos = """
+
+""";

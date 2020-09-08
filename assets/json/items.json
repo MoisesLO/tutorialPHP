@@ -1,10 +1,302 @@
 [
     {
-        "title": "php 1",
-        "content": "contenido 1"
+        "title": "1 - ¿Qué es PHP?",
+        "subtitle": "PHP (acrónimo de \"PHP: Hypertext Preprocessor\") es ...",
+        "content": "content"
     },
     {
-        "title": "php 2",
-        "content": "contenido 2"
+        "title": "2 - Instalación del entorno XAMPP",
+        "subtitle": "Actualmente XAMPP es el entorno más popular de desar ...",
+        "content": "content"
+    },
+    {
+        "title": "3 - Programa \"Hola Mundo\" en PHP",
+        "subtitle": "En este curso suponemos que conoce los elementos pri ...",
+        "content": "content"
+    },
+    {
+        "title": "4 - Un programita mas util que \"Hola Mundo\"",
+        "subtitle": "Un problema sencillo que se nos puede presentar ...",
+        "content": "content"
+    },
+    {
+        "title": "5 - Tipos de variables",
+        "subtitle": "Los nombres de variables comienzan con el caracter ...",
+        "content": "content"
+    },
+    {
+        "title": "6 - Variables de tipo string",
+        "subtitle": "Una variable de este tipo puede almacenar una serie ...",
+        "content": "content"
+    },
+    {
+        "title": "7 - Estructura condicional (if)",
+        "subtitle": "Una variable de este tipo puede almacenar una serie ...",
+        "content": "content"
+    },
+    {
+        "title": "8 - Estructuras repetitivas (for - while - do/while)",
+        "subtitle": "Las estructuras repetitivas son similares al lenguaje C ..",
+        "content": "content"
+    },
+    {
+        "title": "9 - Envío de datos de un FORMULARIO (controles text y submit)",
+        "subtitle": "Una actividad fundamental en PHP es la recolección de datos ...",
+        "content": "content"
+    },
+    {
+        "title": "10 - FORMULARIO (control radio)",
+        "subtitle": "Una actividad fundamental en PHP es la recolección de datos ...",
+        "content": "content"
+    },
+    {
+        "title": "11 - FORMULARIO (control checkbox)",
+        "subtitle": "El control checkbox tiene dos estados: seleccionado ...",
+        "content": "content"
+    },
+    {
+        "title": "12 - FORMULARIO (control select)",
+        "subtitle": "Veamos ahora como podemos rescatar desde PHP el elemento ...",
+        "content": "content"
+    },
+    {
+        "title": "13 - FORMULARIO (control textarea)",
+        "subtitle": "El control HTML \"textarea\" se diferencia del \"text\" en que ...",
+        "content": "content"
+    },
+    {
+        "title": "14 - Vectores (tradicionales)",
+        "subtitle": "Un Array es una colección de valores. Los array pueden ...",
+        "content": "content"
+    },
+    {
+        "title": "15 - Creación de un archivo de texto",
+        "subtitle": "Una actividad fundamental es poder registrar información ...",
+        "content": "content"
+    },
+    {
+        "title": "16 - Lectura de un archivo de texto",
+        "subtitle": "Para la lectura de un archivo de texto contamos ...",
+        "content": "content"
+    },
+    {
+        "title": "17 - Vectores (asociativos)",
+        "subtitle": "Este tipo de vectores no es común a otros lenguajes ...",
+        "content": "content"
+    },
+    {
+        "title": "18 - Funciones en PHP",
+        "subtitle": "La sintaxis para la definición de una función en PHP es ...",
+        "content": "content"
+    },
+    {
+        "title": "19 - Base de datos (MySQL)",
+        "subtitle": "Uno de los empleos principales de PHP es el acceso a una base de datos ...",
+        "content": "content"
+    },
+    {
+        "title": "20 - INSERT (Alta de registros en una tabla)",
+        "subtitle": "20 - INSERT (Alta de registros en una tabla) ...",
+        "content": "content"
+    },
+    {
+        "title": "21 - Listado (selección de registros de una tabla)",
+        "subtitle": "Para recuperar datos desde MySQL o MariaDB debemos ...",
+        "content": "content"
+    },
+    {
+        "title": "22 - Consulta (selección de registros de una tabla)",
+        "subtitle": "El proceso de consulta de datos de una tabla es similar al de listado ...",
+        "content": "content"
+    },
+    {
+        "title": "23 - DELETE (Baja de un registro en una tabla)",
+        "subtitle": "El objetivo de este punto es el borrado de un registro de una tabla ...",
+        "content": "content"
+    },
+    {
+        "title": "24 - DELETE (Baja de todos los registros de una tabla)",
+        "subtitle": "Vimos en el concepto anterior que podemos borrar una ...",
+        "content": "content"
+    },
+    {
+        "title": "25 - UPDATE (Modificación de un registro de una tabla)",
+        "subtitle": "De las actividades con una tabla esta es la más larga ...",
+        "content": "content"
+    },
+    {
+        "title": "26 - INSERT (y consulta de otra tabla)",
+        "subtitle": "En un primer paso vimos como efectuar el alta en la tabla alumnos ...",
+        "content": "content"
+    },
+    {
+        "title": "27 - Listado (selección de registros de varias tablas - INNER JOIN)",
+        "subtitle": "Ahora veremos como imprimir todos los alumnos inscriptos a los cursos ...",
+        "content": "content"
+    },
+    {
+        "title": "28 - Función count de SQL",
+        "subtitle": "Hay en MySQL funciones que nos permiten contar registros ...",
+        "content": "content"
+    },
+    {
+        "title": "29 - UPDATE (Modificación de un registro trabajando con dos tablas)",
+        "subtitle": "Ahora complicaremos un poco la modificación de un registro ...",
+        "content": "content"
+    },
+    {
+        "title": "30 - Cláusula Group By de SQL",
+        "subtitle": "Entre las muchas posibilidades que nos brinda SQL ...",
+        "content": "content"
+    },
+    {
+        "title": "31 - Parámetros en un hipervínculo",
+        "subtitle": "Hasta ahora hemos visto como enviar datos de una página ...",
+        "content": "content"
+    },
+    {
+        "title": "32 - Paginación de registros",
+        "subtitle": "En situaciones en las cuales una consulta retorna ...",
+        "content": "content"
+    },
+    {
+        "title": "33 - Subir un archivo al servidor (Upload)",
+        "subtitle": "Una actividad común en un sitio es poder almacenar ...",
+        "content": "content"
+    },
+    {
+        "title": "34 - Creación y lectura de una cookie",
+        "subtitle": "El protocolo HTTP es desconectado. Esto significa",
+        "content": "content"
+    },
+    {
+        "title": "35 - Borrado de una cookie",
+        "subtitle": "Para borrar una cookie se debe llamar a la función setcookie",
+        "content": "content"
+    },
+    {
+        "title": "36 - Cookie de sesión",
+        "subtitle": "Para crear una cookie que sólo tenga existencia mientras",
+        "content": "content"
+    },
+    {
+        "title": "37 - Variables de sesión ($_SESSION)",
+        "subtitle": "Es otro método para hacer que variables estén disponibles",
+        "content": "content"
+    },
+    {
+        "title": "38 - Incluir un archivo externo (require_once)",
+        "subtitle": "Hasta ahora hemos visto que un archivo contiene todo el código",
+        "content": "content"
+    },
+    {
+        "title": "39 - Redireccionar a otra página (header)",
+        "subtitle": "Con PHP se puede implementar un pequeño programa",
+        "content": "content"
+    },
+    {
+        "title": "40 - Creación de imágenes dinámicas desde PHP",
+        "subtitle": "Existe un conjunto de funciones que nos permite la creación",
+        "content": "content"
+    },
+    {
+        "title": "41 - Agregar imágenes dinámicas en un archivo HTML",
+        "subtitle": "En un concepto anterior habíamos visto como crear un archivo gráfico",
+        "content": "content"
+    },
+    {
+        "title": "42 - Administración de fechas y horas (función date)",
+        "subtitle": "La función date retorna un string con una fecha y hora",
+        "content": "content"
+    },
+    {
+        "title": "43 - Validación de una fecha ingresada por teclado (checkdate)",
+        "subtitle": "Si disponemos en forma separada del día, mes y año hay",
+        "content": "content"
+    },
+    {
+        "title": "44 - Carga de una fecha en una tabla de MySQL",
+        "subtitle": "Agregar a la tabla alumnos un campo llamado \"fechanac\"",
+        "content": "content"
+    },
+    {
+        "title": "45 - Formateo de datos en una página (printf)",
+        "subtitle": "Hasta ahora siempre hemos impreso dentro de la página",
+        "content": "content"
+    },
+    {
+        "title": "46 - Formateo de datos y salida a un string (sprintf)",
+        "subtitle": "Así como vimos que la función printf nos permite tener",
+        "content": "content"
+    },
+    {
+        "title": "47 - mysqli - POO (Programación Orientada a Objetos)",
+        "subtitle": "En conceptos anteriores vimos un conjunto de funciones para el acceso",
+        "content": "content"
+    },
+    {
+        "title": "48 - mysqli (POO) - alta tabla rubros",
+        "subtitle": "Implementaremos el alta de la tabla rubros utilizando la interfaz",
+        "content": "content"
+    },
+    {
+        "title": "49 - mysqli (POO) - listado tabla rubros",
+        "subtitle": "Para recuperar datos de tablas disponemos de una clase",
+        "content": "content"
+    },
+    {
+        "title": "50 - mysqli (POO) - consulta tabla rubros",
+        "subtitle": "Para consultar registros de una tabla debemos utilizar",
+        "content": "content"
+    },
+    {
+        "title": "51 - mysqli (POO) - borrado de un registro de la tabla rubros",
+        "subtitle": "Para el borrado debemos primero localizar el registro a borrar",
+        "content": "content"
+    },
+    {
+        "title": "52 - mysqli (POO) - modificación de un registro de la tabla rubros",
+        "subtitle": "Procederemos ahora a implementar el algoritmo para modificar",
+        "content": "content"
+    },
+    {
+        "title": "53 - mysqli (POO) - alta tabla articulos",
+        "subtitle": "Ahora tenemos que implementar el alta en la tabla articulos",
+        "content": "content"
+    },
+    {
+        "title": "54 - mysqli (POO) - listado tabla articulos",
+        "subtitle": "Ahora implementaremos el listado completo de la tabla",
+        "content": "content"
+    },
+    {
+        "title": "55 - mysqli (POO) - consulta tabla articulos",
+        "subtitle": "Implementaremos el algoritmo para recuperar los datos",
+        "content": "content"
+    },
+    {
+        "title": "56 - mysqli (POO) - borrado de un registro de la tabla articulos",
+        "subtitle": "Para borrar un artículo debemos implementar un formulario",
+        "content": "content"
+    },
+    {
+        "title": "57 - mysqli (POO) - modificación de un registro de la tabla articulos",
+        "subtitle": "Para modificar los datos de un artículo implementaremos",
+        "content": "content"
+    },
+    {
+        "title": "58 - mysqli (POO) - panel para ABM de la tabla articulos",
+        "subtitle": "Ahora implementaremos una serie de páginas para administrar",
+        "content": "content"
+    },
+    {
+        "title": "59 - mysqli (POO) - propiedad: affected_rows",
+        "subtitle": "La propiedad affected_rows almacena la cantidad de filas",
+        "content": "content"
+    },
+    {
+        "title": "60 - mysqli (POO) - propiedad: insert_id",
+        "subtitle": "Otra propiedad de amplio uso es insert_id, la misma",
+        "content": "content"
     }
 ]
