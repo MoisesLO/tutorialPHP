@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -11,12 +13,12 @@ void main() {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-return MaterialApp(
-  theme: ThemeData(),
-  darkTheme: ThemeData.dark(),
-  debugShowCheckedModeBanner: false,
-  home: MyHome(),
-);
+    return MaterialApp(
+      theme: ThemeData(),
+      darkTheme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
+      home: MyHome(),
+    );
   }
 }
 
@@ -29,59 +31,64 @@ class _MyHomeState extends State<MyHome> {
   List<Item> items = List<Item>();
 
   Future<List<Item>> _getItems() async {
-var data =
-json.decode(await rootBundle.loadString('assets/json/items.json'));
-var _items = List<Item>();
-for (var i in data) {
-  _items.add(Item(i['title'], i['subtitle'], i['content']));
-}
-return _items;
+    var data =
+        json.decode(await rootBundle.loadString('assets/json/items.json'));
+    var _items = List<Item>();
+    for (var i in data) {
+      _items.add(Item(i['title'], i['subtitle'], i['content']));
+    }
+    return _items;
   }
 
   @override
   void initState() {
-_getItems().then((value) {
-  setState(() {
-items.addAll(value);
-  });
-});
+    _getItems().then((value) {
+      setState(() {
+        items.addAll(value);
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-return Scaffold(
-appBar: AppBar(
-  title: Row(
-children: [Icon(Icons.whatshot), Text(' Tutorial PHP')],
-  ),
-),
-body: ListView.builder(
-itemBuilder: (BuildContext context, int index) {
-  return _listItem(index);
-},
-itemCount: items.length));
+    return Scaffold(
+        appBar: AppBar(
+          title: Row(
+            children: [Icon(Icons.whatshot), Text(' Tutorial PHP')],
+          ),
+          actions: [
+            IconButton(icon: Icon(Icons.search), onPressed: () =>
+                showSearch(context: context, delegate: DataSearch(items))
+            )
+          ],
+        ),
+        body: ListView.builder(
+            itemBuilder: (BuildContext context, int index) {
+              return _listItem(index);
+            },
+            itemCount: items.length));
   }
 
   _listItem(index) {
-return Card(
-  child: Padding(
-padding: const EdgeInsets.all(8.0),
-child: ListTile(
-  leading: CircleAvatar(
-radius: 30.0,
-backgroundImage: AssetImage("assets/img/logo.png"),
-  ),
-  title: Text(items[index].title),
-  subtitle: Text(items[index].subtitle),
-  onTap: () {
-Navigator.push(
-context,
-MaterialPageRoute(
-builder: (context) => DetailPage(item: items[index])));
-  },
-),
-  ),
-);
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListTile(
+          leading: CircleAvatar(
+            radius: 30.0,
+            backgroundImage: AssetImage("assets/img/logo.png"),
+          ),
+          title: Text(items[index].title),
+          subtitle: Text(items[index].subtitle),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DetailPage(item: items[index])));
+          },
+        ),
+      ),
+    );
   }
 }
 
@@ -100,23 +107,76 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-return Scaffold(
-appBar: AppBar(
-  title: Text(item.title),
-),
-body: ListView(
-  children: <Widget>[
-Padding(
-  padding: const EdgeInsets.all(12.0),
-  child: HtmlWidget(
-item.content,
-  ),
-),
-Padding(
-  padding: const EdgeInsets.all(25),
-)
-  ],
-));
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(item.title),
+        ),
+        body: ListView(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: HtmlWidget(
+                item.content,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(25),
+            )
+          ],
+        ));
+  }
+}
+
+class DataSearch extends SearchDelegate<Item> {
+  final List<Item> items;
+  List<Item> itemsDisplay = List<Item>();
+  DataSearch(this.items);
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [IconButton(icon: Icon(Icons.clear), onPressed: () {})];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
+      close(context, null);
+    });
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // TODO: implement buildResults
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    print(query);
+    // itemsDisplay = items.where((element) => element.title.startsWith(pattern));
+    return ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return _listItem(index,context);
+        },
+        itemCount: items.length);
+  }
+
+  _listItem(index, context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListTile(
+          leading: CircleAvatar(
+            radius: 30.0,
+            backgroundImage: AssetImage("assets/img/logo.png"),
+          ),
+          title: Text(items[index].title),
+          subtitle: Text(items[index].subtitle),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(item: items[index],)));
+          },
+        ),
+      ),
+    );
   }
 }
 
