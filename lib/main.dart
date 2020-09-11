@@ -57,9 +57,10 @@ class _MyHomeState extends State<MyHome> {
             children: [Icon(Icons.whatshot), Text(' Tutorial PHP')],
           ),
           actions: [
-            IconButton(icon: Icon(Icons.search), onPressed: () =>
-                showSearch(context: context, delegate: DataSearch(items))
-            )
+            IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () =>
+                    showSearch(context: context, delegate: DataSearch(items)))
           ],
         ),
         body: ListView.builder(
@@ -128,36 +129,42 @@ class DetailPage extends StatelessWidget {
 }
 
 class DataSearch extends SearchDelegate<Item> {
-  final List<Item> items;
+  List<Item> items;
   List<Item> itemsDisplay = List<Item>();
+
   DataSearch(this.items);
+
   @override
   List<Widget> buildActions(BuildContext context) {
-    return [IconButton(icon: Icon(Icons.clear), onPressed: () {})];
+    return [IconButton(icon: Icon(Icons.clear), onPressed: () {
+      query = '';
+    })];
   }
 
   @override
   Widget buildLeading(BuildContext context) {
-    return IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
-      close(context, null);
-    });
+    return IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () {
+          close(context, null);
+        });
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
     throw UnimplementedError();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    print(query);
-    // itemsDisplay = items.where((element) => element.title.startsWith(pattern));
-    return ListView.builder(
+    itemsDisplay = items
+        .where((note) => note.title.toLowerCase().contains(query))
+        .toList();
+    return itemsDisplay.length == 0 ? Text('No hay Resultados ...') : ListView.builder(
         itemBuilder: (BuildContext context, int index) {
-          return _listItem(index,context);
+          return _listItem(index, context);
         },
-        itemCount: items.length);
+        itemCount: itemsDisplay.length);
   }
 
   _listItem(index, context) {
@@ -169,10 +176,14 @@ class DataSearch extends SearchDelegate<Item> {
             radius: 30.0,
             backgroundImage: AssetImage("assets/img/logo.png"),
           ),
-          title: Text(items[index].title),
-          subtitle: Text(items[index].subtitle),
+          title: Text(itemsDisplay[index].title),
+          subtitle: Text(itemsDisplay[index].subtitle),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(item: items[index],)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        DetailPage(item: itemsDisplay[index])));
           },
         ),
       ),
